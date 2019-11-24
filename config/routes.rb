@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'home/about' => 'homes#about', as: 'about'
 
 
-resources :homes
+
   root 'homes#index'
 
   resources :books
