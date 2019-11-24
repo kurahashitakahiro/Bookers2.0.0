@@ -1,0 +1,30 @@
+<div class="container">
+		<div class="col-xs-3">
+			<%= render 'users/userinfo', user: current_user, book: @book %>
+		</div>
+
+		<div class="col-xs-9">
+			<h1>Users</h1>
+
+			<table class="table table-hover table-inverse">
+				<thead>
+					<tr>
+						<th class="image">image</th>
+						<th class="name">name</th>
+						<th></th>
+					</tr>
+
+					<% @users.all.each do |user| %>
+					<tr>
+						<td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', size: '40x40', class: "pull-left profile-img", fallback: "no_image.jpg" %></td>
+						<td><%= user.name %></td>
+						<td><%= link_to "Show", user_path(user.id) %></td>
+					</tr>
+					<% end %>
+
+				</thead>
+			</table>
+		</div>
+
+</div>
+
